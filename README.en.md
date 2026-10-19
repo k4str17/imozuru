@@ -7,7 +7,9 @@
 
 [日本語](README.md) | English
 
-imozuru is a Claude Code skill that digs into an unfamiliar field, pulling one lead after another until it reaches the original sources.
+> This repository is a fork of [MaryCache/imozuru](https://github.com/MaryCache/imozuru). It keeps the original skill implementation while adding plugin-distribution metadata for Claude Code and Codex.
+
+imozuru is a skill for Claude Code and Codex that digs into an unfamiliar field, pulling one lead after another until it reaches the original sources.
 It applies ideas from information-seeking research in library and information science, such as Bates's berrypicking, Ellis's model of information-seeking behaviour, and Kuhlthau's Information Search Process.
 
 The name comes from *imozuru-shiki* (芋づる式), the Japanese idiom for things coming up one after another, like sweet potatoes pulled up on a single vine.
@@ -49,13 +51,41 @@ In watch mode, it collects new posts from the venues a dig turned up (Qiita and 
 
 ## Install
 
-Install with the [skills](https://github.com/vercel-labs/skills) CLI.
+This fork uses `skills/imozuru/` as the shared skill source and distributes it as a plugin for both Claude Code and Codex.
 
-```sh
-npx skills add MaryCache/imozuru
+### Claude Code
+
+Add the marketplace:
+
+```text
+/plugin marketplace add k4str17/imozuru
 ```
 
-To install by hand, copy `skills/imozuru/` to `~/.claude/skills/imozuru/`.
+Then install the plugin:
+
+```text
+/plugin install imozuru@k4str17-imozuru
+```
+
+### Codex
+
+Add the marketplace:
+
+```sh
+codex plugin marketplace add k4str17/imozuru
+```
+
+Then start Codex, open `/plugins`, and install `imozuru` from the `k4str17 imozuru` marketplace.
+
+### Direct skill installation
+
+If you prefer the previous skill-only installation path, the [skills](https://github.com/vercel-labs/skills) CLI still works:
+
+```sh
+npx skills add k4str17/imozuru
+```
+
+For a manual Claude Code installation, copy `skills/imozuru/` to `~/.claude/skills/imozuru/`.
 
 ## Requirements
 
@@ -72,7 +102,7 @@ The scripts run on the Python 3.10+ standard library alone, and use the followin
 
 ## Usage
 
-Ask Claude Code something like this.
+Ask Claude Code or Codex something like this.
 
 ```
 芋づる式に調べて: 歌ってみたの MIX で、上手い人がどういう順番で処理しているか
