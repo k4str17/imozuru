@@ -1,0 +1,24 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "k4str17-imozuru",
+  "description": "imozuru plugin marketplace maintained in the k4str17 fork.",
+  "owner": {
+    "name": "k4str17"
+  },
+  "plugins": [
+    {
+      "name": "imozuru",
+      "description": "Research unfamiliar fields by mapping terms, people, and venues, then following citations, links, and authors to original sources and evidence locations.",
+      "author": {
+        "name": "MaryCache"
+      },
+      "category": "productivity",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/k4str17/imozuru.git",
+        "ref": "main"
+      },
+      "homepage": "https://github.com/k4str17/imozuru"
+    }
+  ]
+}
