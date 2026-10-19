@@ -1,0 +1,27 @@
+{
+  "name": "k4str17-imozuru",
+  "interface": {
+    "displayName": "k4str17 imozuru"
+  },
+  "plugins": [
+    {
+      "name": "imozuru",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/k4str17/imozuru.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL",
+        "products": [
+          "CODEX"
+        ]
+      },
+      "category": "Education & Research",
+      "interface": {
+        "displayName": "imozuru"
+      }
+    }
+  ]
+}
