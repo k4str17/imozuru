@@ -1,9 +1,9 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "imozuru",
-  "description": "imozuru のマーケットプレイス",
+  "name": "k4str17-imozuru",
+  "description": "imozuru のk4str17 Fork用マーケットプレイス",
   "owner": {
-    "name": "MaryCache"
+    "name": "k4str17"
   },
   "plugins": [
     {
@@ -14,8 +14,8 @@
       },
       "source": "./",
       "category": "productivity",
-      "homepage": "https://github.com/MaryCache/imozuru",
-      "repository": "https://github.com/MaryCache/imozuru",
+      "homepage": "https://github.com/k4str17/imozuru",
+      "repository": "https://github.com/k4str17/imozuru",
       "license": "MIT"
     }
   ]

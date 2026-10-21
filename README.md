@@ -7,7 +7,9 @@
 
 日本語 | [English](README.en.md)
 
-imozuruは、知らない分野を、原文にたどりつくまで芋づる式に掘るClaude Codeのスキルです。
+> このリポジトリは [MaryCache/imozuru](https://github.com/MaryCache/imozuru) のForkです。Fork元の実装を追従しつつ、Codex向けPlugin配布と、このForkを直接導入するためのメタデータを追加しています。
+
+imozuruは、知らない分野を、原文にたどりつくまで芋づる式に掘るClaude Code / Codex向けのスキルです。
 Batesのberrypicking、Ellisの探索行動のモデル、Kuhlthauの探索過程の研究など、図書館情報学の情報探索の研究から、考え方を応用しています。
 
 ## ふつうに頼んだときとの違い
@@ -47,23 +49,33 @@ Claudeはまず、問いと、答えるために必要な主張を3〜6個書き
 
 ### Claude Code のプラグイン
 
-このリポジトリをマーケットプレイスとして追加し、プラグインとして入れます。
+このForkをマーケットプレイスとして追加し、プラグインとして入れます。
 
 ```text
-/plugin marketplace add MaryCache/imozuru
-/plugin install imozuru@imozuru
+/plugin marketplace add k4str17/imozuru
+/plugin install imozuru@k4str17-imozuru
 ```
 
 プラグインには版の番号を付けていないので、main にコミットが入るたびに新しい版として扱われます。
 自動で最新にしたいときは、`/plugin` のマーケットプレイスの画面で imozuru の自動更新を入れてください。
-手で更新するときは `claude plugin marketplace update imozuru` を流します。
+手で更新するときは `claude plugin marketplace update k4str17-imozuru` を流します。
+
+### Codex のプラグイン
+
+このForkをCodexのマーケットプレイスとして追加します。
+
+```sh
+codex plugin marketplace add k4str17/imozuru
+```
+
+その後Codexを起動して `/plugins` を開き、`k4str17 imozuru` から `imozuru` をインストールします。
 
 ### skills のCLI
 
 [skills](https://github.com/vercel-labs/skills) のCLIでも入れられます。
 
 ```sh
-npx skills add MaryCache/imozuru
+npx skills add k4str17/imozuru
 ```
 
 手動の場合は、`skills/imozuru/` を `~/.claude/skills/imozuru/` にコピーしてください。
@@ -84,7 +96,7 @@ npx skills add MaryCache/imozuru
 
 ## 使い方
 
-Claude Codeで、次のように頼みます。
+Claude CodeまたはCodexで、次のように頼みます。
 
 ```
 芋づる式に調べて: 歌ってみたのMIXで、上手い人がどういう順番で処理しているか
