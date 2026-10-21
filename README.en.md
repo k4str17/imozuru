@@ -60,7 +60,7 @@ Add this fork as a marketplace and install the plugin.
 /plugin install imozuru@k4str17-imozuru
 ```
 
-The plugin carries no version number, so every commit to main counts as a new version.
+This fork uses `plugin.json`'s `version` as the plugin release version. The first run publishes the current version as-is; after that, GitHub Actions bumps the patch version only when changes under `skills/` reach `main`. The same version is synchronized to the Claude Code manifest, published as a `vX.Y.Z` tag and GitHub Release, and used to pin the Codex marketplace to immutable release content.
 To stay up to date automatically, turn on auto-update for imozuru in the marketplace screen of `/plugin`.
 To update by hand, run `claude plugin marketplace update k4str17-imozuru`.
 
