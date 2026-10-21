@@ -6,8 +6,13 @@
     "name": "MaryCache",
     "url": "https://github.com/MaryCache"
   },
-  "homepage": "https://github.com/MaryCache/imozuru",
-  "repository": "https://github.com/MaryCache/imozuru",
+  "homepage": "https://github.com/k4str17/imozuru",
+  "repository": "https://github.com/k4str17/imozuru",
   "license": "MIT",
-  "keywords": ["research", "information-seeking", "literature-review", "source-discovery"]
+  "keywords": [
+    "research",
+    "information-seeking",
+    "literature-review",
+    "source-discovery"
+  ]
 }
