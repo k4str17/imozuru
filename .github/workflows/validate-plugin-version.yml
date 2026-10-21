@@ -1,0 +1,38 @@
+name: Validate plugin version
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - plugin.json
+      - .claude-plugin/**
+      - .agents/plugins/**
+  push:
+    branches:
+      - main
+    paths:
+      - plugin.json
+      - .claude-plugin/**
+      - .agents/plugins/**
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Validate plugin version policy
+        shell: bash
+        env:
+          BASE_SHA: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          set -euo pipefail
+          python3 .github/scripts/check_plugin_version.py --base "${BASE_SHA}"
