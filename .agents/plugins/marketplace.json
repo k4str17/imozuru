@@ -8,8 +8,7 @@
       "name": "imozuru",
       "source": {
         "source": "url",
-        "url": "https://github.com/k4str17/imozuru.git",
-        "ref": "main"
+        "url": "https://github.com/k4str17/imozuru.git"
       },
       "policy": {
         "installation": "AVAILABLE",

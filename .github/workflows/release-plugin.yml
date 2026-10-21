@@ -1,0 +1,78 @@
+name: Release plugin
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - plugin.json
+      - .claude-plugin/plugin.json
+      - skills/**
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: plugin-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Resolve release version
+        id: version
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          version="$(python3 - <<'PY'
+          import json
+          with open("plugin.json", encoding="utf-8") as handle:
+              print(json.load(handle)["version"])
+          PY
+          )"
+          tag="v${version}"
+
+          git fetch --tags --force origin
+
+          if git rev-parse --verify --quiet "refs/tags/${tag}" >/dev/null; then
+            echo "${tag} already exists; nothing to publish."
+            echo "should_release=false" >> "${GITHUB_OUTPUT}"
+          else
+            echo "should_release=true" >> "${GITHUB_OUTPUT}"
+          fi
+
+          echo "version=${version}" >> "${GITHUB_OUTPUT}"
+          echo "tag=${tag}" >> "${GITHUB_OUTPUT}"
+
+      - name: Create and push release tag
+        if: steps.version.outputs.should_release == 'true'
+        shell: bash
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          set -euo pipefail
+          git tag -a "${TAG}" -m "Release ${TAG}"
+          git push origin "${TAG}"
+
+      - name: Publish GitHub Release
+        if: steps.version.outputs.should_release == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
+        run: |
+          set -euo pipefail
+          gh release create "${TAG}" \
+            --verify-tag \
+            --generate-notes \
+            --title "${TAG}"

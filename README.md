@@ -56,7 +56,7 @@ Claudeはまず、問いと、答えるために必要な主張を3〜6個書き
 /plugin install imozuru@k4str17-imozuru
 ```
 
-プラグインには版の番号を付けていないので、main にコミットが入るたびに新しい版として扱われます。
+`plugin.json` の `version` をこのForkのPlugin版の基準として使います。`skills/` やPlugin manifestを変更するPRではversion更新を必須とし、Claude Code向けmanifestも同じversionに揃えます。新しいversionが `main` に入ると、GitHub Actionsが `vX.Y.Z` タグと同名のGitHub Releaseを公開します。Marketplace側にはversionを重ねて持たせません。
 自動で最新にしたいときは、`/plugin` のマーケットプレイスの画面で imozuru の自動更新を入れてください。
 手で更新するときは `claude plugin marketplace update k4str17-imozuru` を流します。
 
