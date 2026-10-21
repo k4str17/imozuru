@@ -7,7 +7,9 @@
 
 [日本語](README.md) | English
 
-imozuru is a Claude Code skill that digs into an unfamiliar field, pulling one lead after another until it reaches the original sources.
+> This repository is a fork of [MaryCache/imozuru](https://github.com/MaryCache/imozuru). It tracks the upstream implementation while adding Codex plugin distribution and metadata for installing this fork directly.
+
+imozuru is a skill for Claude Code and Codex that digs into an unfamiliar field, pulling one lead after another until it reaches the original sources.
 It applies ideas from information-seeking research in library and information science, such as Bates's berrypicking, Ellis's model of information-seeking behaviour, and Kuhlthau's Information Search Process.
 
 The name comes from *imozuru-shiki* (芋づる式), the Japanese idiom for things coming up one after another, like sweet potatoes pulled up on a single vine.
@@ -51,23 +53,33 @@ In watch mode, it collects new posts from the venues a dig turned up (Qiita and 
 
 ### As a Claude Code plugin
 
-Add this repository as a marketplace and install the plugin.
+Add this fork as a marketplace and install the plugin.
 
 ```text
-/plugin marketplace add MaryCache/imozuru
-/plugin install imozuru@imozuru
+/plugin marketplace add k4str17/imozuru
+/plugin install imozuru@k4str17-imozuru
 ```
 
 The plugin carries no version number, so every commit to main counts as a new version.
 To stay up to date automatically, turn on auto-update for imozuru in the marketplace screen of `/plugin`.
-To update by hand, run `claude plugin marketplace update imozuru`.
+To update by hand, run `claude plugin marketplace update k4str17-imozuru`.
+
+### As a Codex plugin
+
+Add this fork as a Codex marketplace.
+
+```sh
+codex plugin marketplace add k4str17/imozuru
+```
+
+Then start Codex, open `/plugins`, and install `imozuru` from the `k4str17 imozuru` marketplace.
 
 ### With the skills CLI
 
 You can also install it with the [skills](https://github.com/vercel-labs/skills) CLI.
 
 ```sh
-npx skills add MaryCache/imozuru
+npx skills add k4str17/imozuru
 ```
 
 To install by hand, copy `skills/imozuru/` to `~/.claude/skills/imozuru/`.
@@ -88,7 +100,7 @@ The scripts run on the Python 3.10+ standard library alone, and use the followin
 
 ## Usage
 
-Ask Claude Code something like this.
+Ask Claude Code or Codex something like this.
 
 ```
 芋づる式に調べて: 歌ってみたの MIX で、上手い人がどういう順番で処理しているか
