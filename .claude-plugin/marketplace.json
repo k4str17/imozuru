@@ -8,7 +8,6 @@
   "plugins": [
     {
       "name": "imozuru",
-      "version": "0.1.1",
       "description": "知らない分野を、原文にたどりつくまで芋づる式に掘るスキル",
       "author": {
         "name": "MaryCache"
