@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
-SEMVER = re.compile(r"^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$")
+SEMVER = re.compile(r"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$")
 PLUGIN_NAME = "imozuru"
 
 
@@ -25,9 +25,9 @@ def load_json(relative_path: str) -> dict[str, Any]:
 
 def write_json(relative_path: str, data: dict[str, Any]) -> None:
     path = ROOT / relative_path
-    with path.open("w", encoding="utf-8", newline="\\n") as handle:
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
         json.dump(data, handle, ensure_ascii=False, indent=2)
-        handle.write("\\n")
+        handle.write("\n")
 
 
 def bump_version(version: str, bump: str) -> str:
