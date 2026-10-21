@@ -6,15 +6,15 @@ on:
       - main
     paths:
       - plugin.json
-      - .claude-plugin/**
-      - .agents/plugins/**
+      - .claude-plugin/plugin.json
+      - skills/**
   push:
     branches:
       - main
     paths:
       - plugin.json
-      - .claude-plugin/**
-      - .agents/plugins/**
+      - .claude-plugin/plugin.json
+      - skills/**
 
 permissions:
   contents: read
