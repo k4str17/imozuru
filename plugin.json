@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "imozuru",
+  "version": "0.1.0",
+  "description": "Research unfamiliar fields by mapping terms, people, and venues, then following citations, links, and authors to original sources and evidence locations.",
+  "author": {
+    "name": "MaryCache",
+    "url": "https://github.com/MaryCache"
+  },
+  "homepage": "https://github.com/k4str17/imozuru",
+  "repository": "https://github.com/k4str17/imozuru",
+  "license": "MIT",
+  "keywords": [
+    "research",
+    "information-seeking",
+    "literature-review",
+    "source-discovery"
+  ]
+}
