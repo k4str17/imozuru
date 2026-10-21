@@ -8,6 +8,7 @@ on:
       - plugin.json
       - .claude-plugin/plugin.json
       - skills/**
+      - .github/workflows/release-plugin.yml
   workflow_dispatch:
 
 permissions:
@@ -61,7 +62,7 @@ jobs:
           TAG: ${{ steps.version.outputs.tag }}
         run: |
           set -euo pipefail
-          git tag -a "${TAG}" -m "Release ${TAG}"
+          git tag "${TAG}"
           git push origin "${TAG}"
 
       - name: Publish GitHub Release
